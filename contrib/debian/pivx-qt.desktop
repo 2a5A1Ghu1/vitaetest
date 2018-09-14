@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=VITAE
+Comment=VITAE P2P Cryptocurrency
+Comment[fr]=VITAE, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=VITAE, eşten eşe kriptografik sanal para birimi
+Exec=vitae-qt %u
+Terminal=false
+Type=Application
+Icon=vitae128
+MimeType=x-scheme-handler/vitae;
+Categories=Office;Finance;

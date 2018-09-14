@@ -1,0 +1,26 @@
+[Unit]
+Description=VITAE's distributed currency daemon
+After=network.target
+
+[Service]
+User=vitae
+Group=vitae
+
+Type=forking
+PIDFile=/var/lib/vitaed/vitaed.pid
+
+ExecStart=/usr/bin/vitaed -daemon -pid=/var/lib/vitaed/vitaed.pid \
+          -conf=/etc/vitae/vitae.conf -datadir=/var/lib/vitaed
+
+ExecStop=-/usr/bin/vitae-cli -conf=/etc/vitae/vitae.conf \
+         -datadir=/var/lib/vitaed stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
